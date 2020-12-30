@@ -24,5 +24,9 @@
     padding: 16px;
     border-radius: 4px;
     background: scroll;
-    width: inherit;
+    width: max-content;
+    display: inline-block;
+}
+.div{
+    justify-content: center;
 }

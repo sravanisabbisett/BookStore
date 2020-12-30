@@ -14,6 +14,7 @@ import{MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule,HttpClientModule,
     BrowserAnimationsModule,MatToolbarModule,
     MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,ReactiveFormsModule,FormsModule,MatButtonModule
   ],
