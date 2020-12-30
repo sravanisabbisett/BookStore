@@ -1,0 +1,106 @@
+.card {
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    width: 500px;
+    
+}
+.main{
+    text-align: center;
+  }
+  .f{
+    color:#4285F4;
+    }
+    .u{
+    color:#DB4437
+    }
+    .n{
+      color: #F4B400
+    }
+    .d{
+      color:#4285F4;
+    }
+    .o{
+      color:  #0F9D58
+    }
+    .O{
+      color:#DB4437
+    }
+  
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .i{
+    margin-top: 20%;
+  }
+  .signIn{
+    color: #4586ee;
+    font-weight: bold;
+    cursor: pointer;
+    // margin-top: 20%;
+  }
+  
+  .main{
+    min-height:-webkit-fill-available !important;
+  }
+  .card :hover{
+    background-color: #ffa500;
+    transform: scale(1.1); 
+    
+   }
+   .service{
+    margin-left: 36px;
+    margin-top: 36px;
+  }
+  .message{
+    margin-top: 8px;
+  }
+  
+  
+  
+  
+  .selected{
+    background-color: #e6ac00;
+    width: fit-content;
+    max-width: 144px;
+  
+  .insideMat{
+     margin-left: -36px;
+     margin-top: -36px;
+     min-height: 212px;
+  }
+  
+  }
+  .notSelected{
+    background-color: #b8b5ae;
+    width: fit-content;
+    max-width: 144px;
+  
+    .insideMat{
+        margin-left: -36px;
+        margin-top: -36px;
+     min-height: 212px;
+  
+    }
+
+    .mat-form-field {
+        display: inline-block;
+        position: relative;
+        text-align: left;
+        width: 500px;
+    }
+   
+}
+  .header{
+    margin-top: 50px;
+    font-size:large;
+    background: crimson;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}

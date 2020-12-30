@@ -1,0 +1,88 @@
+<p class="header">BOOK STORE REGISTRATION</p>
+<div class="main" fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100" fxFlexOffset.xs="0" fxFlex.xs="100">
+    <mat-card fxFlex.xs="100">
+        <div>
+            <form [formGroup]="registerForm" autocomplete="off" novalidate
+                (ngSubmit)="register(registerForm.value)">
+                <div>
+                    <mat-card-content>
+                        <div>
+                            <mat-card-subtitle>Create your Bookstore Account</mat-card-subtitle>
+                        </div>
+  
+                        <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px" fxLayout.xs="column">
+                            <div>
+                                <mat-form-field appearance="outline" fxFlex="100" fxFlex.xs="100">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput type="tel" placeholder="fullname" formControlName="fullname"
+                                        id="fullname">
+                                    <mat-error *ngIf="registerForm.hasError('fullname', 'required')">Name is required
+                                    </mat-error>
+                                    <mat-error *ngIf="registerForm.hasError('fullname', 'minlength')">name should be
+                                        more than 3
+                                        characters
+                                    </mat-error>
+                                    <mat-hint>Name starts with uppercase</mat-hint>
+                                    <mat-icon matSuffix>name</mat-icon>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline" fxFlex="91" fxFlex.xs="100">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="text" placeholder="Email" class="email" formControlName="email"
+                                    id="email">
+                                <mat-error *ngIf="registerForm.hasError('email', 'required')">email is required
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.hasError('email', 'email')">invalid mail</mat-error>
+                                <mat-hint>You can use letters,Numbers</mat-hint>
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field appearance="outline" fxFlex="91" fxFlex.xs="100">
+                                <mat-label>MobileNumber</mat-label>
+                                <input matInput type="text" placeholder="mobilenumber" class="mobilenumber" formControlName="mobilenumber"
+                                    id="mobilenumber">
+                                <mat-error *ngIf="registerForm.hasError('mobilenumber', 'required')">Number is required
+                                </mat-error>
+                                <mat-error *ngIf="registerForm.hasError('mobilenumber', 'mobilenumber')">invalid Numbers</mat-error>
+                                <mat-hint></mat-hint>
+                                <mat-icon matSuffix>phone</mat-icon>
+                            </mat-form-field>
+                        </div>
+  
+                        <div>
+                             <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px" fxLayout.xs="column">
+                                <mat-form-field appearance="outline" fxFlex="91" fxFlex.xs="100">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput type="text" placeholder="password" formControlName="password" id="password"
+                                    [type]="hide ? 'password' : 'text'">
+                                    <button mat-icon-button matSuffix (click)="hide = !hide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    </button>
+                                    <mat-error *ngIf="registerForm.hasError('required', 'password')">pasword is required</mat-error>
+                                    <mat-error *ngIf="registerForm.hasError('password', 'minlength')">password length should be 6</mat-error>
+                                    <mat-hint>Conatins alphanumeric and spcl characters</mat-hint> 
+                                </mat-form-field>
+                               
+                            </div>
+                        </div>
+  
+                        <div class="service" fxLayout="row"  fxLayout.sm="column" fxLayout.xs="column"
+                            fxLayoutAlign.xs="space-around center" fxLayoutAlign.lg="start center"
+                            fxLayoutAlign.sm="space-around center" fxLayoutGap.sm='10%' fxLayoutGap.xs='10%'
+                            fxLayoutGap.lg='7%' fxLayoutAlign="space-around none">
+                        </div>
+                        <div fxLayoutAlign="space-between center">
+                            <a class="signIn" (click)="login()">login in instead</a>
+                            <button mat-raised-button color="primary" [disabled]="!registerForm.valid">REGISTER</button>
+                        </div>
+                    </mat-card-content>
+                </div>
+  
+            </form>
+        </div>
+    </mat-card>
+  </div> 
