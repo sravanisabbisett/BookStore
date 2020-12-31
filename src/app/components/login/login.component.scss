@@ -1,15 +1,14 @@
 .header{
-    margin-top: 50px;
-    font-size:large;
-    background: crimson;
-    color: white;
-    padding: 10px;
-    text-align: center;
     justify-content: center;
-    overflow: hidden;
-}
+    background-color: brown;
+    color: white;
+    font-size: large;
+  }
+  
+  
 .main{
     text-align: center;
+    padding: 70px 0;
 }
 .mat-card-subtitle {
     color: rgba(0,0,0,.54);
@@ -30,3 +29,4 @@
 .div{
     justify-content: center;
 }
+

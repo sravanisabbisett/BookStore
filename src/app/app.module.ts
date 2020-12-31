@@ -15,12 +15,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GetbooksComponent } from './components/getbooks/getbooks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    DashboardComponent,
+    GetbooksComponent
   ],
   imports: [
     BrowserModule,

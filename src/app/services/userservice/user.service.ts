@@ -12,4 +12,9 @@ export class UserService {
     console.log("data in user service",data);
     return this.http.post('bookstore_user/registration',data);
   }
+
+  login(data:any){
+    console.log("data in user service",data);
+    return this.http.post('bookstore_user/login',data);
+  }
 }

@@ -9,26 +9,12 @@
 }
 .main{
     text-align: center;
+    padding: 70px 0;
   }
-  .f{
-    color:#4285F4;
-    }
-    .u{
-    color:#DB4437
-    }
-    .n{
-      color: #F4B400
-    }
-    .d{
-      color:#4285F4;
-    }
-    .o{
-      color:  #0F9D58
-    }
-    .O{
-      color:#DB4437
-    }
-  
+  .mat-card-subtitle{
+    font-weight: bold;
+    color: black;
+  }
   
   a {
     text-decoration: none;
@@ -95,15 +81,6 @@
     }
    
 }
-  .header{
-    margin-top: 50px;
-    font-size:large;
-    background: crimson;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    justify-content: center;
-}
 
 .register{
     background: brown;
@@ -117,5 +94,16 @@
     background: scroll;
     width: max-content;
     display: inline-block;
+}
+
+.header{
+  justify-content: center;
+  background-color: brown;
+  color: white;
+  font-size: large;
+}
+
+.mat-raised-button.my-custom-class{
+  background-color: brown;
 }
 

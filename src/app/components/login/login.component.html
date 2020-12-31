@@ -1,4 +1,7 @@
-<p class="header">BOOKSTORE</p>
+<mat-toolbar class="header">
+    <span>BOOK STORE</span>
+</mat-toolbar>
+<p ></p> 
 <div fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="5%">
     <div class="main" fxLayoutAlign="center center" fxFlex="100" fxFlexOffset.xs="0" fxFlex.xs="100">
         <mat-card fxFlex.xs="100" fxFlex.md="70" fxFlex.lg="30">
@@ -36,7 +39,7 @@
                             <a routerLink="../forgotPassword">Forget Password?</a>
                         </div>
                         <div>
-                            <button mat-raised-button color="primary" [disabled]="!loginForm.valid">login</button>
+                            <button mat-raised-button color="" [disabled]="!loginForm.valid">login</button>
                         </div>
                     </div>
                 </mat-card-content>

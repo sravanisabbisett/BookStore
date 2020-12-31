@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   register = (registerForm: { fullname: any;email: any;mobilenumber:any; password: any; }) => {
     try {
       let newUser = {
-        firstName: registerForm.fullname,
+        fullName: registerForm.fullname,
         email: registerForm.email,
         mobilenumber:registerForm.mobilenumber,
         password: registerForm.password}
