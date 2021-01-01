@@ -24,6 +24,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { HeadersComponent } from './components/headers/headers.component';
 import { OrderComponent } from './components/order/order.component';
 import {MatTableModule} from '@angular/material/table';
+import { MycartComponent } from './components/mycart/mycart.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatTableModule} from '@angular/material/table';
     GetbooksComponent,
     HeadersComponent,
     OrderComponent,
+    MycartComponent,
   ],
   imports: [
     BrowserModule,MatTableModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookservice/book.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { BookService } from 'src/app/services/bookservice/book.service';
 })
 export class GetbooksComponent implements OnInit {
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService,private router:Router) { }
 
  // booksArray=[]
   booksArray: Array<any> = [];
@@ -26,7 +27,7 @@ export class GetbooksComponent implements OnInit {
     })
 }
 addcart(){
-  
+  this.router.navigate(['cart']);
 }
 
 review() {

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
 import { LoginComponent } from './components/login/login.component';
+import { MycartComponent } from './components/mycart/mycart.component';
 import { OrderComponent } from './components/order/order.component';
 import { RegisterComponent } from './components/register/register.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [{ path: 'register', component: RegisterComponent },
     { path: '', component: GetbooksComponent }
   ]
 },
-{ path: 'order', component: OrderComponent }
+{ path: 'order', component: OrderComponent },
+{ path: 'cart', component: MycartComponent }
 ];
 
 @NgModule({
