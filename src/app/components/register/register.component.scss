@@ -24,10 +24,9 @@
     margin-top: 20%;
   }
   .signIn{
-    color: #4586ee;
+    color:brown;
     font-weight: bold;
     cursor: pointer;
-    // margin-top: 20%;
   }
   
   .main{
@@ -105,5 +104,10 @@
 
 .mat-raised-button.my-custom-class{
   background-color: brown;
+}
+
+.button{
+  background-color: brown;
+  color: white;
 }
 

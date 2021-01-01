@@ -19,6 +19,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GetbooksComponent } from './components/getbooks/getbooks.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatBadgeModule} from '@angular/material/badge';
+import { HeadersComponent } from './components/headers/headers.component';
+import { OrderComponent } from './components/order/order.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,11 +33,13 @@ import { GetbooksComponent } from './components/getbooks/getbooks.component';
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    GetbooksComponent
+    GetbooksComponent,
+    HeadersComponent,
+    OrderComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,HttpClientModule,
+    BrowserModule,MatTableModule,
+    AppRoutingModule,HttpClientModule,MatTooltipModule,MatBadgeModule,
     BrowserAnimationsModule,MatToolbarModule,
     MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,ReactiveFormsModule,FormsModule,MatButtonModule
   ],

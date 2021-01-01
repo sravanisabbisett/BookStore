@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   hide = true;
   constructor(private formBuilder: FormBuilder,private router:Router,private userservice:UserService) { }
   
-
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       fullname: ['', [Validators.pattern("^[A-Z]{1}[a-z]{2,}"),Validators.required,Validators.minLength(3)]],
