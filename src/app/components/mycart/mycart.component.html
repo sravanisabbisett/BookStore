@@ -1,1 +1,102 @@
-<p>mycart works!</p>
+<app-header></app-header>
+<mat-accordion>
+    <div>
+        <mat-expansion-panel hideToggle class="center">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    My cart
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <div style="display: flex;">
+                    <span>
+                        <img src="../../../assets/ram.jpg" class="image">
+                    </span>
+                    <span class="position">
+                        <mat-card-title>RAM</mat-card-title>
+                        <mat-card-subtitle><br>by Amish</mat-card-subtitle>
+                        <mat-card-content><br>220<br></mat-card-content>
+                        <button mat-icon-button>
+                            <mat-icon>remove_circle_outline</mat-icon>
+                        </button>
+                        220
+                        <button mat-icon-button>
+                            <mat-icon>add_circle_outline</mat-icon>
+                        </button>
+                        <button mat-stroked-button>
+                            remove
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <mat-action-row>
+                <button mat-button color="primary" ></button>
+            </mat-action-row>
+
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>
+
+
+<!-- <mat-accordion>
+    <div class="main">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Customer Details</mat-panel-title>
+            </mat-expansion-panel-header>
+            <form [formGroup]="customerForm">
+                <div class="mat-div">
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput type="text" placeholder="firstName" formControlName="firstName"
+                                id="fisrtName">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone number</mat-label>
+                            <input matInput type="text" placeholder="PhoneNumber" formControlName="PhoneNumber"
+                                id="PhoneNumber">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Pin Code</mat-label>
+                            <input matInput type="text" placeholder="PinCode" formControlName="PinCode" id="PinCode">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Locality</mat-label>
+                            <input matInput type="text" placeholder="Locality" formControlName="Locality" id="Locality">
+                        </mat-form-field>
+                    </div>
+                    <div class="address-div">
+                        <mat-form-field class="address-field" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput type="text" placeholder="Address" formControlName="Address"
+                                id="Address"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-div">
+                        <mat-form-field appearance="outline">
+                            <mat-label>City/Town</mat-label>
+                            <input matInput type="text" placeholder="City/Town" formControlName="City/Town"
+                                id="City/Town">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>LandMark</mat-label>
+                            <input matInput type="text" placeholder="LandMark" formControlName="LandMark" id="LandMark">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-radio-group aria-label="Type">
+                            <div class="mat-radio">
+                                <mat-radio-button value="1">Home</mat-radio-button>
+                            <mat-radio-button value="2">Work</mat-radio-button>
+                            <mat-radio-button value="2">Other</mat-radio-button>
+                            </div>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </form>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion> -->

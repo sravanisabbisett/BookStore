@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-mycart',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MycartComponent implements OnInit {
 
   constructor() { }
-
+  customerForm!: FormGroup
   ngOnInit(): void {
   }
 
