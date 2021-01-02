@@ -1,25 +1,25 @@
 <app-header></app-header>
 <mat-accordion>
     <div>
-        <mat-expansion-panel hideToggle class="center">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  class="center">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     My cart
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div>
+            <div *ngFor="let book of books">
                 <div style="display: flex;">
                     <span>
-                        <img src="../../../assets/ram.jpg" class="image">
+                        <img mat-panel-image src="../../../assets/ram.jpg" class="image">
                     </span>
                     <span class="position">
-                        <mat-card-title>RAM</mat-card-title>
-                        <mat-card-subtitle><br>by Amish</mat-card-subtitle>
-                        <mat-card-content><br>220<br></mat-card-content>
-                        <button mat-icon-button>
+                        <mat-card-title>{{book.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
+                        <button mat-icon-button >
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
-                        220
+                        1
                         <button mat-icon-button>
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <mat-action-row>
-                <button mat-button color="primary" ></button>
+                <button mat-button color="primary" (click)="nextStep()">Place order</button>
             </mat-action-row>
 
         </mat-expansion-panel>
@@ -38,9 +38,9 @@
 </mat-accordion>
 
 
-<!-- <mat-accordion>
+<mat-accordion>
     <div class="main">
-        <mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
             <mat-expansion-panel-header>
                 <mat-panel-title>Customer Details</mat-panel-title>
             </mat-expansion-panel-header>
@@ -78,7 +78,7 @@
                     <div class="form-div">
                         <mat-form-field appearance="outline">
                             <mat-label>City/Town</mat-label>
-                            <input matInput type="text" placeholder="City/Town" formControlName="City/Town"
+                            <input matInput type="text" placeholder="City/Town" formControlName="City"
                                 id="City/Town">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
@@ -96,7 +96,38 @@
                         </mat-radio-group>
                     </div>
                 </div>
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Continue</button>
+                </mat-action-row>  
+
             </form>
         </mat-expansion-panel>
     </div>
-</mat-accordion> -->
+</mat-accordion>
+
+<mat-accordion>
+    <div>
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle class="center">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Order Summary
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let book of books">
+                <div style="display: flex;">
+                    <span>
+                        <img mat-panel-image src="../../../assets/ram.jpg" class="image">
+                    </span>
+                    <span class="position">
+                        <mat-card-title>{{book.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
+                    </span>
+                </div>
+            </div>
+            <mat-action-row>
+                <button mat-button color="primary" >Checkout</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </div>
+</mat-accordion>

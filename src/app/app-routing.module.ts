@@ -13,8 +13,10 @@ const routes: Routes = [{ path: 'register', component: RegisterComponent },
 {
   path: 'dashboard', component: DashboardComponent,
   children: [
-    { path: '', component: GetbooksComponent }
+    { path: '', component: GetbooksComponent },
+    
   ]
+  
 },
 { path: 'order', component: OrderComponent },
 { path: 'cart', component: MycartComponent }

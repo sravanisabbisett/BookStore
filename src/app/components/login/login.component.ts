@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice/user.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +10,10 @@ import { UserService } from 'src/app/services/userservice/user.service';
 export class LoginComponent implements OnInit {
   hide=true
   loginForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder,private route:Router,private userservice:UserService) { }
+  constructor(private formBuilder: FormBuilder,
+              private route:Router,
+              private userservice:UserService,
+              ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

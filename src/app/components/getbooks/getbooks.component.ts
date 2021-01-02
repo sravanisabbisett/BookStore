@@ -13,6 +13,7 @@ export class GetbooksComponent implements OnInit {
 
  // booksArray=[]
   booksArray: Array<any> = [];
+  wishlist: Array<any> = [];
   
  
   ngOnInit() {
@@ -26,8 +27,9 @@ export class GetbooksComponent implements OnInit {
       console.log(" books array " ,this.booksArray);
     })
 }
-addcart(){
-  this.router.navigate(['cart']);
+addcart(book: any){
+  this.wishlist.push(book);
+ localStorage.setItem('addedcart',JSON.stringify(this.wishlist)); 
 }
 
 review() {
