@@ -7,7 +7,7 @@
                     My cart
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div *ngFor="let book of books">
+            <div *ngFor="let book of books;let i=index">
                 <div style="display: flex;">
                     <span>
                         <img mat-panel-image src="../../../assets/ram.jpg" class="image">
@@ -16,14 +16,14 @@
                         <mat-card-title>{{book.bookName}}</mat-card-title>
                         <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
                         <mat-card-content><br>{{book.price}}<br></mat-card-content>
-                        <button mat-icon-button >
+                        <button mat-icon-button (click)="remove(i)">
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
-                        1
-                        <button mat-icon-button>
+                        {{num}}
+                        <button mat-icon-button (click)=additem()>
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
-                        <button mat-stroked-button>
+                        <button mat-stroked-button (click)="removeitem(i)">
                             remove
                         </button>
                     </span>
@@ -126,7 +126,7 @@
                 </div>
             </div>
             <mat-action-row>
-                <button mat-button color="primary" >Checkout</button>
+                <button mat-button color="primary" (click)="checkout()">Checkout</button>
             </mat-action-row>
         </mat-expansion-panel>
     </div>
