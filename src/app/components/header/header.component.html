@@ -1,22 +1,22 @@
 <mat-toolbar class="header" >
   <mat-toolbar-row>
+      <mat-icon aria-hidden="false" aria-label="Example home icon">Book</mat-icon>
       <span>bookstore</span>
       <span [formGroup]="header" class="input-feild">
         <button mat-button>
             <mat-icon>search</mat-icon>
         </button>
         <input matInput type="text" formControlName="dataa" autocomplete="off" placeholder="search">
-    </span>
+      </span>
       <span class="example-spacer"></span>
       <button mat-icon-button #tooltip="matTooltip" matTooltip="wishlist">
         <mat-icon matBadge="{{list}}" matBadgeColor="warn" routerLink="list">favorite_border</mat-icon>
-    </button>
-    <button mat-icon-button #tooltip="matTooltip" matTooltip="cart" class="bag">
+      </button>
+      <button mat-icon-button #tooltip="matTooltip" matTooltip="cart" class="bag">
       <mat-icon matBadge="{{bag}}" matBadgeColor="warn" routerLink="../cart" >shopping_cart</mat-icon>
-  </button>
-    
-    </mat-toolbar-row>
-  </mat-toolbar>
+      </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 
 

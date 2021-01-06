@@ -1,11 +1,13 @@
 .example-icon {
   padding: 0 14px;
 }
-
 .example-spacer {
   flex: 1 1 auto;
 }
-
+img {
+  width: 45px;
+  margin-right: 20px;
+}
 .header {
   background-color: #8f2b2f;
   color: white;
@@ -27,7 +29,7 @@
 .button {
   width: 100%;
 }
-.mat-icon-button{
+.mat-icon-button {
   padding-top: 1%;
 }
 @media screen and (min-width: 990px) {
@@ -75,6 +77,33 @@
   font-weight: lighter;
   background-color: #f1f3f4;
 }
-mat-card{
+mat-card {
   padding: 0px;
+}
+.btn-group {
+  display: inline;
+}
+.mat-toolbar-row {
+  justify-content: center;
+}
+.mat-button {
+  padding: 0px;
+  min-width: 0px;
+}
+.material-icons[_ngcontent-cwh-c87] {
+  padding-bottom: 52%;
+}
+span {
+  margin-right: 25px;
+}
+input {
+  width: 80%;
+  outline: none;
+  border: none;
+  font-size: 28px !important;
+  font-weight: lighter;
+  background-color: #f1f3f4;
+}
+.mat-icon {
+  outline: none;
 }

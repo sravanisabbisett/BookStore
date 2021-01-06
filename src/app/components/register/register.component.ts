@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
       let newUser = {
         fullName: registerForm.fullname,
         email: registerForm.email,
-        mobilenumber:registerForm.mobilenumber,
+        phone:registerForm.mobilenumber,
         password: registerForm.password}
         
          this.userservice.registration(newUser).subscribe((response)=>{

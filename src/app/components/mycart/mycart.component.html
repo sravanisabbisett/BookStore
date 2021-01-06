@@ -1,4 +1,4 @@
-<app-header></app-header>
+ <app-header></app-header>
 <mat-accordion>
     <div>
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  class="center">
@@ -10,7 +10,7 @@
             <div *ngFor="let book of books;let i=index">
                 <div style="display: flex;">
                     <span>
-                        <img mat-panel-image src="../../../assets/ram.jpg" class="image">
+                        <img mat-panel-image src={{book.bookImage}} class="image">
                     </span>
                     <span class="position">
                         <mat-card-title>{{book.bookName}}</mat-card-title>
@@ -20,10 +20,10 @@
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
                         {{num}}
-                        <button mat-icon-button (click)=additem()>
+                        <button mat-icon-button (click)=addItem(i)>
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
-                        <button mat-stroked-button (click)="removeitem(i)">
+                        <button mat-stroked-button (click)="removeCartItem(book)">
                             remove
                         </button>
                     </span>
@@ -131,3 +131,5 @@
         </mat-expansion-panel>
     </div>
 </mat-accordion>
+<app-footer class="footer"></app-footer>
+ 

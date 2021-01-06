@@ -27,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MycartComponent } from './components/mycart/mycart.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -45,7 +46,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MycartComponent,
   ],
   imports: [
-    BrowserModule,MatTableModule,MatExpansionModule,MatRadioModule,
+    BrowserModule,MatTableModule,MatExpansionModule,MatRadioModule,MatSnackBarModule,
     AppRoutingModule,HttpClientModule,MatTooltipModule,MatBadgeModule,
     BrowserAnimationsModule,MatToolbarModule,
     MatFormFieldModule,MatInputModule,MatCardModule,MatIconModule,ReactiveFormsModule,FormsModule,MatButtonModule
