@@ -24,4 +24,14 @@ export class BookService {
     console.log("data in remove item",data);
     return this.httpService.postCart('Cart/RemoveCartItem?productId='+data,{});
   }
+
+  reduceQuantity(product_id: string,quantityToRemove: string){
+    return this.httpService.postCart('Cart/ReduceBookQuantity?productId='+product_id+'&quantityToRemove='+quantityToRemove,{})
+  }
+
+  updateQuantity(data:any){
+    console.log("data in bookservice",data)
+    return this.httpService.postCart('Cart/UpdateCart',data);
+  }
 }
+

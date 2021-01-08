@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookservice/book.service';
 import { UserService } from 'src/app/services/userservice/user.service';
@@ -11,9 +12,10 @@ import { UserService } from 'src/app/services/userservice/user.service';
 })
 export class MycartComponent implements OnInit {
 
+  @Output() length!:number;
   price = new Array(5).fill(1)
   books:Array<any>=[]
-  constructor(private router:Router,private bookservice:BookService) { }
+  constructor(private router:Router,private bookservice:BookService,private snackbar:MatSnackBar) { }
   customerForm!: FormGroup;
   ngOnInit(): void {
     this.customerForm = new FormGroup({
@@ -26,6 +28,8 @@ export class MycartComponent implements OnInit {
       LandMark:new FormControl(),
    });
    this.getCartItems();
+   
+   console.log("length of bag count in my cart:",this.length);
   }
 
   num:any=1;
@@ -37,49 +41,49 @@ export class MycartComponent implements OnInit {
     this.step++;
   }
 
-  /* additem(){
-    this.num++
+  addItem(book:any) {
+    this.bookservice.updateQuantity(book).subscribe((response=>{
+      this.num++;
+      console.log("quantityadded sucessfully",response);
+    }))
   }
 
-  remove(num:any){
-    this.num--;
-    if(this.num==0){
-      this.removeitem(num)
-    }
-  } */
+  
 
-  addItem(index:any) {
-    this.price[index] = ++this.num
+  remove(product_id: any,quantity: any){
+    this.bookservice.reduceQuantity(product_id,quantity).subscribe((response=>{
+      console.log("quantity removed sucessfully",response);
+      /*if (this.num > 1) {
+        this.num--;
+      } else {
+        this.snackbar.open('You cannot make quantity less than', action, {
+          duration: 2000,
+        });
+      }*/
+    }))
+
   }
-
-  remove(index:any) {
-    if (this.num > 0)
-      this.price[index] = --this.num
-  }
-
   checkout(){
     this.router.navigate(['order'])
   }
 
   getCartItems(){
-    this.bookservice.getCartItems().subscribe((response:any)=>{
+     var item=this.bookservice.getCartItems().subscribe((response:any)=>{
       console.log(response);
       this.books=response['result']
       console.log("booksArray",this.books);
-    })
+      console.log("length of array",this.books.length)
+    })  
+    console.log("item is",item);
+    return item
   }
 
-  removeitem(num:any){
-    this.books.splice(num, 1);
-    localStorage.setItem('questions',JSON.stringify(this.books));
-  }
   removeCartItem(data:any){
     this.books.splice(data,1);
     this.bookservice.removeCartItem(data.product_id).subscribe((res:any)=>{
       console.log("cart Item removed sucessfully",res);
     })
   }
-
 
 }
 

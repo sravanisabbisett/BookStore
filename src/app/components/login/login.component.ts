@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice/user.service';
 @Component({
@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/userservice/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  durationInSeconds=2;
   hide=true
   loginForm!: FormGroup;
   constructor(private formBuilder: FormBuilder,
@@ -38,10 +39,12 @@ export class LoginComponent implements OnInit {
     this.userservice.login(reqData).subscribe((response:any)=>{
       console.log("login sucessfull",response['token']);
       localStorage.setItem('token',response['token']);
-      this.snackbar.open("login sucessfull");
-      this.route.navigate(['dashboard'])
+        this.snackbar.open('login sucessfull')
+        this.route.navigate(['dashboard'])
     })
     
   }
+
+
 
 }

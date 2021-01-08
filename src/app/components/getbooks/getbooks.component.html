@@ -10,16 +10,14 @@
             <mat-card-subtitle>
                 by {{book.author}}
             </mat-card-subtitle>
-            <p>
-                <!-- <button mat-raised-button color="primary" disabled matBadgePosition="before" matBadgeColor="accent">
-                </button> -->
-            </p>
             <span><b>Rs {{book.price}}</b>
             </span>
         </mat-card-content>
-        <div class="butt">
-            <button class="but" *ngIf='book.added' mat-raised-button (click)="addcart(book)">added to bag</button>
-            <button class="but" *ngIf='!book.added' mat-raised-button (click)="addcart(book)">add to bag</button>
+        <div>
+            <button class="butn" *ngIf='book.added' mat-raised-button (click)="addcart(book)">ADDED TO BAG</button>
+        </div>
+        <div class="butt" *ngIf='!book.added'>
+            <button class="but" mat-raised-button (click)="addcart(book)">add to bag</button>
             <button class="whishlist" mat-raised-button>wishlist</button>
         </div>
     </mat-card>

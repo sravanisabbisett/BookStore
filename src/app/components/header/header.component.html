@@ -1,12 +1,13 @@
+{{bag}}
 <mat-toolbar class="header" >
   <mat-toolbar-row>
       <mat-icon aria-hidden="false" aria-label="Example home icon">Book</mat-icon>
-      <span>bookstore</span>
+      <span routerLink="../dashboard" style="cursor: grab;">bookstore</span>
       <span [formGroup]="header" class="input-feild">
-        <button mat-button>
-            <mat-icon>search</mat-icon>
-        </button>
-        <input matInput type="text" formControlName="dataa" autocomplete="off" placeholder="search">
+        <div class="search">
+          <span class="fa fa-search"></span>
+          <input placeholder="Search">
+        </div>
       </span>
       <span class="example-spacer"></span>
       <button mat-icon-button #tooltip="matTooltip" matTooltip="wishlist">

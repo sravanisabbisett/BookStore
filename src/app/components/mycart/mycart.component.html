@@ -16,13 +16,14 @@
                         <mat-card-title>{{book.bookName}}</mat-card-title>
                         <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
                         <mat-card-content><br>{{book.price}}<br></mat-card-content>
-                        <button mat-icon-button (click)="remove(i)">
+                        <button mat-icon-button (click)="remove(book.product_id,1)">
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
-                        {{num}}
-                        <button mat-icon-button (click)=addItem(i)>
+                       {{num}}
+                        <button mat-icon-button (click)=addItem(book) >
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
+                        
                         <button mat-stroked-button (click)="removeCartItem(book)">
                             remove
                         </button>

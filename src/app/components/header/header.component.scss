@@ -107,3 +107,12 @@ input {
 .mat-icon {
   outline: none;
 }
+.search { position: relative; }
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 11px;
+  left: 7px;
+  font-size: 15px;
+  color:black;
+}

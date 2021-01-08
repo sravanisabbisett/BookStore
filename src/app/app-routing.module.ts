@@ -9,17 +9,17 @@ import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [{ path: 'register', component: RegisterComponent },
-{ path: 'login', component: LoginComponent },
-{
-  path: 'dashboard', component: DashboardComponent,
-  children: [
-    { path: '', component: GetbooksComponent },
+ { path: '', component: LoginComponent },
+ {
+   path: 'dashboard', component: DashboardComponent,
+children: [
+     { path: '', component: GetbooksComponent },
     
-  ]
+   ]
   
-},
+ },
 { path: 'order', component: OrderComponent },
-{ path: 'cart', component: MycartComponent }
+{ path: 'cart', component: MycartComponent },
 ];
 
 @NgModule({
