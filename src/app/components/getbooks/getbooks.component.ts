@@ -14,6 +14,8 @@ export class GetbooksComponent implements OnInit {
  // booksArray=[]
   booksArray: Array<any> = [];
   wishlist: Array<any> = [];
+  books:Array<any>=[];
+  bag:any;
   
 
   ngOnInit() {
@@ -30,15 +32,30 @@ export class GetbooksComponent implements OnInit {
 
 
 addcart(book: any){
-  book.added=false;
+  book.addedToCart=false;
   for(let b of this.booksArray){
     if(book.product_id==b.product_id){
-      book.added=true;
+      book.addedToCart=true;
     }
   }
  this.bookService.AddCart(book).subscribe((res)=>{
    console.log("AddBookSucess",res)
+   this.getCartItems();
  })
+
+
+}
+
+getCartItems(){
+  this.bookService.getCartItems().subscribe((response:any)=>{
+   console.log(response);
+   this.books=response['result']
+   console.log("booksArray",this.books);
+   console.log("length of array",this.books.length)
+   this.bag=this.books.length;
+   console.log("bag value in get components:",this.bag)
+ })  
+ 
 }
 
 review() {

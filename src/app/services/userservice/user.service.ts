@@ -17,4 +17,9 @@ export class UserService {
     console.log("data in user service",data);
     return this.http.post('User/Login',data);
   }
+
+  customerDetails(data:any){
+    console.log("data in user service",data);
+    return this.http.post('CustomerDetails/AddCustomerDetails',data);
+  }
 }

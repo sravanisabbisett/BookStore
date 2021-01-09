@@ -1,25 +1,25 @@
  <app-header></app-header>
 <mat-accordion>
-    <div>
+    <div *ngFor="let book of books;let i=index"> 
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  class="center">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    My cart
+                    My cart ({{book.quantityToBuy}})
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div *ngFor="let book of books;let i=index">
+            <div>
                 <div style="display: flex;">
                     <span>
-                        <img mat-panel-image src={{book.bookImage}} class="image">
+                        <img mat-panel-image src={{book.product.bookImage}} class="image">
                     </span>
                     <span class="position">
-                        <mat-card-title>{{book.bookName}}</mat-card-title>
-                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
-                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
-                        <button mat-icon-button (click)="remove(book.product_id,1)">
+                        <mat-card-title>{{book.product.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.product.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.product.price}}<br></mat-card-content>
+                        <button mat-icon-button (click)="remove(book.product.product_id,1)">
                             <mat-icon>remove_circle_outline</mat-icon>
                         </button>
-                       {{num}}
+                        {{num}}
                         <button mat-icon-button (click)=addItem(book) >
                             <mat-icon>add_circle_outline</mat-icon>
                         </button>
@@ -45,46 +45,52 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Customer Details</mat-panel-title>
             </mat-expansion-panel-header>
-            <form [formGroup]="customerForm">
+            <form [formGroup]="customerForm" (ngSubmit)="Customer(customerForm.value)">
                 <div class="mat-div">
                     <div class="form-div">
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
-                            <input matInput type="text" placeholder="firstName" formControlName="firstName"
-                                id="fisrtName">
+                            <input matInput type="text" placeholder="fullname" formControlName="fullname"
+                                id="fullname">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Phone number</mat-label>
-                            <input matInput type="text" placeholder="PhoneNumber" formControlName="PhoneNumber"
-                                id="PhoneNumber">
+                            <input matInput type="text" placeholder="phone" formControlName="phone"
+                                id="phone">
                         </mat-form-field>
                     </div>
                     <div class="form-div">
                         <mat-form-field appearance="outline">
                             <mat-label>Pin Code</mat-label>
-                            <input matInput type="text" placeholder="PinCode" formControlName="PinCode" id="PinCode">
+                            <input matInput type="text" placeholder="pincode" formControlName="pincode" id="pincode">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
-                            <mat-label>Locality</mat-label>
-                            <input matInput type="text" placeholder="Locality" formControlName="Locality" id="Locality">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" placeholder="email" formControlName="email" id="email">
                         </mat-form-field>
                     </div>
+                    <!-- <div class="address-div">
+                        <mat-form-field  class="email" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input  matInput type="text" placeholder="Email" formControlName="Email" id="Email">
+                        </mat-form-field>
+                    </div> -->
                     <div class="address-div">
                         <mat-form-field class="address-field" appearance="outline">
                             <mat-label>Address</mat-label>
-                            <textarea matInput type="text" placeholder="Address" formControlName="Address"
-                                id="Address"></textarea>
+                            <textarea matInput type="text" placeholder="fullAddress" formControlName="fullAddress"
+                                id="fullAddress"></textarea>
                         </mat-form-field>
                     </div>
                     <div class="form-div">
                         <mat-form-field appearance="outline">
                             <mat-label>City/Town</mat-label>
-                            <input matInput type="text" placeholder="City/Town" formControlName="City"
-                                id="City/Town">
+                            <input matInput type="text" placeholder="City/Town" formControlName="city"
+                                id="city">
                         </mat-form-field>
                         <mat-form-field appearance="outline">
-                            <mat-label>LandMark</mat-label>
-                            <input matInput type="text" placeholder="LandMark" formControlName="LandMark" id="LandMark">
+                            <mat-label>state</mat-label>
+                            <input matInput type="text" placeholder="state" formControlName="state" id="state">
                         </mat-form-field>
                     </div>
                     <div>
@@ -100,7 +106,6 @@
                 <mat-action-row>
                     <button mat-button color="primary" (click)="nextStep()">Continue</button>
                 </mat-action-row>  
-
             </form>
         </mat-expansion-panel>
     </div>
@@ -117,12 +122,12 @@
             <div *ngFor="let book of books">
                 <div style="display: flex;">
                     <span>
-                        <img mat-panel-image src="../../../assets/ram.jpg" class="image">
+                        <img mat-panel-image src={{book.product.bookImage}} class="image">
                     </span>
                     <span class="position">
-                        <mat-card-title>{{book.bookName}}</mat-card-title>
-                        <mat-card-subtitle><br>{{book.author}}</mat-card-subtitle>
-                        <mat-card-content><br>{{book.price}}<br></mat-card-content>
+                        <mat-card-title>{{book.product.bookName}}</mat-card-title>
+                        <mat-card-subtitle><br>{{book.product.author}}</mat-card-subtitle>
+                        <mat-card-content><br>{{book.product.price}}<br></mat-card-content>
                     </span>
                 </div>
             </div>
