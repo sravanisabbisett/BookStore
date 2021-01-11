@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookservice/book.service';
+import { CartService } from 'src/app/services/cartService/cart.service';
 import { UserService } from 'src/app/services/userservice/user.service';
 
 @Component({
@@ -14,14 +15,16 @@ import { UserService } from 'src/app/services/userservice/user.service';
 export class MycartComponent implements OnInit {
 
 
-  @Output() length!:number;
-  price = new Array(5).fill(1)
+  price:any;
+  bag!: any;
+  @Input() childMessage: number | undefined;
   books:Array<any>=[]
   constructor(private router:Router,
               private bookservice:BookService,
               private snackbar:MatSnackBar,
               private userservice:UserService,
-              private formBuilder:FormBuilder) { }
+              private formBuilder:FormBuilder,
+              private cartservice:CartService) { }
   customerForm!: FormGroup;
   ngOnInit(): void {
     this.customerForm = this.formBuilder.group({
@@ -33,9 +36,8 @@ export class MycartComponent implements OnInit {
       city:['',[Validators.required]],
       state:['',[Validators.required]],
    });
+   //this.bag=this.cartservice.getCartItems();
    this.getCartItems();
-   
-   console.log("length of bag count in my cart:",this.length);
   }
 
   Customer = (customerForm: { fullname: any; phone:any; pincode:any; fullAddress:any;email: any;city:any;state:any; }) => {
@@ -71,27 +73,37 @@ export class MycartComponent implements OnInit {
     this.step++;
   }
 
-  addItem(book:any) {
-    this.num++;
-    this.bookservice.updateQuantity(book).subscribe((response=>{
-      console.log("quantityadded sucessfully",response);
-    }))
+  addItem(book:any,action:any) {
+    if (book.quantityToBuy > book.product.quantity) {
+      this.snackbar.open('you cannot make quantity more than ', action, {
+        duration: 2000,
+      });
+    } else {
+      this.bookservice.updateQuantity(book).subscribe((data) => {
+        console.log(data, 'quantity increased');
+        this.getCartItems();
+        //this.bag=this.cartservice.getCartItems();
+      });
+    }
   }
 
   
 
-  remove(product_id: any,quantity: any){
-    this.num--;
-    this.bookservice.reduceQuantity(product_id,quantity).subscribe((response=>{
-      console.log("quantity removed sucessfully",response);
-      /*if (this.num > 1) {
-        this.num--;
-      } else {
-        this.snackbar.open('You cannot make quantity less than', action, {
-          duration: 2000,
+  remove(book: any,quantity: any,action:any){
+    if (book.quantityToBuy > 1) {
+      this.bookservice
+        .reduceQuantity(book.product_id, quantity)
+        .subscribe((result:any) => {
+          book.isValid = true;
+          this.getCartItems();
+          //this.bag=this.cartservice.getCartItems();
         });
-      }*/
-    }))
+    } else {
+      this.snackbar.open('You cannot make quantity less than', action, {
+        duration: 2000,
+      });
+      book.isValid = false;
+    }
 
   }
   checkout(){
@@ -102,10 +114,10 @@ export class MycartComponent implements OnInit {
      this.bookservice.getCartItems().subscribe((response:any)=>{
       console.log(response);
       this.books=response['result']
-      console.log("booksArray",this.books);
-      console.log("length of array",this.books.length)
-      this.length=this.books.length;
-    })  
+       console.log("booksArray",this.books);
+       console.log("length of array",this.books.length)
+       this.bag=this.books.length;
+     })  
     
   }
 
@@ -113,6 +125,16 @@ export class MycartComponent implements OnInit {
     this.books.splice(data,1);
     this.bookservice.removeCartItem(data.product_id).subscribe((res:any)=>{
       console.log("cart Item removed sucessfully",res);
+      this.getCartItems();
+      //this.bag=this.cartservice.getCartItems();
+      
+    })
+  }
+
+  orderPlaced(book: any){
+    this.userservice.orderPlaced(book).subscribe(res=>{
+      console.log('orderPlaced sucessfully', res);
+      this.checkout();
     })
   }
 

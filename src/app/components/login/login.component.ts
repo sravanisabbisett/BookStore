@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private route:Router,
               private userservice:UserService,
-              private snackbar:MatSnackBar
+              private snackbar:MatSnackBar,
+              private router:Router
               ) { }
 
   ngOnInit(): void {
@@ -45,6 +46,11 @@ export class LoginComponent implements OnInit {
     
   }
 
-
+  forgotPassword() {
+    this.router.navigate(['forgotPassword']);
+  }
+  register() {
+    this.router.navigate(['register']);
+  }
 
 }

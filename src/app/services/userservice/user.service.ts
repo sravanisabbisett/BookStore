@@ -22,4 +22,9 @@ export class UserService {
     console.log("data in user service",data);
     return this.http.post('CustomerDetails/AddCustomerDetails',data);
   }
+
+  orderPlaced(book: any){
+    console.log("data in user service");
+    return this.http.postCart('Order/PlaceOrder',book);
+  }
 }

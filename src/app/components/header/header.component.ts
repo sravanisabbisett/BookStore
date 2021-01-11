@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BookService } from 'src/app/services/bookservice/book.service';
+import { CartService } from 'src/app/services/cartService/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -14,18 +15,20 @@ export class HeaderComponent implements OnInit {
   header!: FormGroup;
   name:any;
   email:any;
-  @Input() childMessage: number | undefined;
+  @Input() childMessage: number | undefined;  
+  //@Input() childMessage=this.cartservice.getCartItems();
   bag=0;
   books:Array<any>=[]
   
   list:any;
-  constructor(private formbuilder:FormBuilder, private bookservice:BookService) { }
+  constructor(private formbuilder:FormBuilder, private bookservice:BookService,private cartservice:CartService) { }
 
   ngOnInit(): void {
     this.header=this.formbuilder.group({
       dataa:[""]
     });
     this.getCartItems();
+   //this.childMessage=this.cartservice.getCartItems();
   }
 
   getCartItems(){
@@ -38,6 +41,5 @@ export class HeaderComponent implements OnInit {
    })  
    
  }
-  
 
 }

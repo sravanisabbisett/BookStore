@@ -1,13 +1,15 @@
- <app-header></app-header>
+<div class="header">
+    <app-header [childMessage]="bag"></app-header>
+</div>
 <mat-accordion>
-    <div *ngFor="let book of books;let i=index"> 
+    <div> 
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle  class="center">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    My cart ({{book.quantityToBuy}})
+                    My cart
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div>
+            <div *ngFor="let book of books;let i=index">
                 <div style="display: flex;">
                     <span>
                         <img mat-panel-image src={{book.product.bookImage}} class="image">
@@ -15,18 +17,23 @@
                     <span class="position">
                         <mat-card-title>{{book.product.bookName}}</mat-card-title>
                         <mat-card-subtitle><br>{{book.product.author}}</mat-card-subtitle>
-                        <mat-card-content><br>{{book.product.price}}<br></mat-card-content>
-                        <button mat-icon-button (click)="remove(book.product.product_id,1)">
-                            <mat-icon>remove_circle_outline</mat-icon>
-                        </button>
-                        {{num}}
-                        <button mat-icon-button (click)=addItem(book) >
-                            <mat-icon>add_circle_outline</mat-icon>
-                        </button>
-                        
-                        <button mat-stroked-button (click)="removeCartItem(book)">
-                            remove
-                        </button>
+                        <mat-card-content><br>{{book.product.price*book.quantityToBuy}}<br></mat-card-content>
+                        <div>
+                            <button mat-icon-button *ngIf="book.isValid" (click)="remove(book,1,'1')">
+                                <mat-icon>remove_circle_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button *ngIf="!book.isValid" (click)="remove(book,1,'1')">
+                                <mat-icon>remove_circle_outline</mat-icon>
+                            </button>
+                            {{book.quantityToBuy}}
+                            <button mat-icon-button *ngIf="book.isValid" (click)="addItem(book,book.product.quantity)">
+                                <mat-icon>add_circle_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button *ngIf="!book.isValid" (click)="addItem(book,book.product.quantity)">
+                                <mat-icon>add_circle_outline</mat-icon>
+                            </button>
+                            <button mat-stroked-button (click)="removeCartItem(book)">remove</button>
+                        </div>
                     </span>
                 </div>
             </div>
@@ -69,12 +76,6 @@
                             <input matInput type="text" placeholder="email" formControlName="email" id="email">
                         </mat-form-field>
                     </div>
-                    <!-- <div class="address-div">
-                        <mat-form-field  class="email" appearance="outline">
-                            <mat-label>Email</mat-label>
-                            <input  matInput type="text" placeholder="Email" formControlName="Email" id="Email">
-                        </mat-form-field>
-                    </div> -->
                     <div class="address-div">
                         <mat-form-field class="address-field" appearance="outline">
                             <mat-label>Address</mat-label>
@@ -130,10 +131,10 @@
                         <mat-card-content><br>{{book.product.price}}<br></mat-card-content>
                     </span>
                 </div>
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="orderPlaced(book)">Checkout</button>
+                </mat-action-row>
             </div>
-            <mat-action-row>
-                <button mat-button color="primary" (click)="checkout()">Checkout</button>
-            </mat-action-row>
         </mat-expansion-panel>
     </div>
 </mat-accordion>

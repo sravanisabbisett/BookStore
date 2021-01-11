@@ -1,17 +1,16 @@
-.header{
+.header {
     justify-content: center;
     background-color: brown;
     color: white;
     font-size: large;
-  }
-  
-  
-.main{
+}
+
+.main {
     text-align: center;
     padding: 90px 0;
 }
 .mat-card-subtitle {
-    color: rgba(0,0,0,.54);
+    color: rgba(0, 0, 0, 0.54);
     font-weight: bold;
     font-size: larger;
     color: black;
@@ -28,19 +27,35 @@
     height: 300px;
     width: 250px;
 }
-.div{
+.div {
     justify-content: center;
 }
 
-.butn{
+.butn {
     background-color: brown;
-    color:white;
+    color: white;
 }
 
-.bottom{
+.forgotPassword {
+    display: flex;
+    text-indent: 14px;
+    color: #a03037;
+}
+
+.bottom {
+    box-sizing: inherit;
     display: flex;
     justify-content: space-between;
-    padding: 11px;
-    align-items: stretch;
+    text-indent: 15px;
+}
+.signIn {
+    color: #a03037;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 38px
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}

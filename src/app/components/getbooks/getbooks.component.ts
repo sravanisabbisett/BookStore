@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookservice/book.service';
+import { CartService } from 'src/app/services/cartService/cart.service';
 
 @Component({
   selector: 'app-getbooks',
@@ -9,17 +10,20 @@ import { BookService } from 'src/app/services/bookservice/book.service';
 })
 export class GetbooksComponent implements OnInit {
 
-  constructor(private bookService: BookService,private router:Router) { }
+  constructor(private bookService: BookService,private router:Router,private cartservice:CartService) { }
 
- // booksArray=[]
   booksArray: Array<any> = [];
   wishlist: Array<any> = [];
   books:Array<any>=[];
-  bag:any;
+  //bag:any;
+ bag:any;
   
 
   ngOnInit() {
     this.getAllBooks();
+    this.getCartItems();
+    //this.bag=this.cartservice.getCartItems();
+    //console.log("bag length in get books componennt",this.bag);
   }
 
   getAllBooks(){
@@ -41,10 +45,12 @@ addcart(book: any){
  this.bookService.AddCart(book).subscribe((res)=>{
    console.log("AddBookSucess",res)
    this.getCartItems();
+   //this.bag=this.cartservice.getCartItems();
+   //console.log("value in add to cart component",this.bag);
+
  })
-
-
 }
+
 
 getCartItems(){
   this.bookService.getCartItems().subscribe((response:any)=>{
